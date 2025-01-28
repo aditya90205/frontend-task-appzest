@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom"; // React Router for navigation
+import { Link, useNavigate } from "react-router-dom"; // React Router for navigation
+
 
 // Define the validation schema using Zod
 const loginSchema = z
@@ -94,12 +95,12 @@ const Registration = () => {
         {/* Sign In Link */}
         <div className="form-field">
           <div className="form-control justify-center">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="link link-underline-hover link-primary text-sm"
             >
               Already have an account? Sign in.
-            </a>
+            </Link>
           </div>
         </div>
       </form>

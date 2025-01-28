@@ -91,7 +91,7 @@ const Dashboard = () => {
           <div className="flex items-center space-x-4">
             <input
               type="text"
-              placeholder="Search..."
+              placeholder="Select Data Range"
               className="p-2 rounded-md border border-gray-300"
             />
           </div>

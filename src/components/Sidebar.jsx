@@ -1,4 +1,11 @@
+import { useState } from "react";
 const SideBar = () => {
+  const [activeLink, setActiveLink] = useState("analytics");
+
+  // Function to handle link click
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+  };
   return (
     <aside className="sidebar h-screen justify-start">
       <section className="sidebar-title items-center p-4">
@@ -18,7 +25,7 @@ const SideBar = () => {
           ></path>
         </svg>
         <div className="flex flex-col">
-          <span>Acme</span>
+          <span>Appzest</span>
           <span className="text-xs font-normal text-content2">Team Plan</span>
         </div>
       </section>
@@ -27,7 +34,8 @@ const SideBar = () => {
           <section className="menu-section px-4">
             <span className="menu-title">Main menu</span>
             <ul className="menu-items">
-              <li className="menu-item">
+              <li  className={`menu-item ${activeLink === "analytics" ? "bg-blue-500 text-white" : ""}`}
+                onClick={() => handleLinkClick("analytics")}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 opacity-75"
@@ -50,7 +58,8 @@ const SideBar = () => {
                 <span>Analytics</span>
               </li>
 
-              <li className="menu-item menu-active">
+              <li className={`menu-item ${activeLink === "users" ? "bg-blue-500 text-white" : ""}`}
+                onClick={() => handleLinkClick("users")} >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 opacity-75"
@@ -67,7 +76,8 @@ const SideBar = () => {
                 </svg>
                 <span>Users</span>
               </li>
-              <li className="menu-item">
+              <li className={`menu-item ${activeLink === "transactions" ? "bg-blue-500 text-white" : ""}`}
+                onClick={() => handleLinkClick("transactions")} >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 opacity-75"
@@ -185,3 +195,115 @@ const SideBar = () => {
 };
 
 export default SideBar;
+
+
+// import React, { useState } from "react";
+
+// const SideBar = () => {
+//   const [activeLink, setActiveLink] = useState("analytics");
+
+//   // Function to handle link click
+//   const handleLinkClick = (link) => {
+//     setActiveLink(link);
+//   };
+
+//   return (
+//     <aside className="sidebar h-screen justify-start">
+//       <section className="sidebar-title items-center p-4">
+//         {/* Your SVG and app name */}
+//       </section>
+
+//       <section className="sidebar-content h-fit min-h-[20rem] overflow-visible">
+//         <nav className="menu rounded-md">
+//           <section className="menu-section px-4">
+//             <span className="menu-title">Main menu</span>
+//             <ul className="menu-items">
+//               <li
+//                 className={`menu-item ${activeLink === "analytics" ? "bg-blue-500 text-white" : ""}`}
+//                 onClick={() => handleLinkClick("analytics")}
+//               >
+//                 <svg
+//                   xmlns="http://www.w3.org/2000/svg"
+//                   className="h-5 w-5 opacity-75"
+//                   fill="none"
+//                   viewBox="0 0 24 24"
+//                   stroke="currentColor"
+//                   strokeWidth="2"
+//                 >
+//                   {/* Your SVG path for Analytics */}
+//                 </svg>
+//                 <span>Analytics</span>
+//               </li>
+
+//               <li
+//                 className={`menu-item ${activeLink === "users" ? "bg-blue-500 text-white" : ""}`}
+//                 onClick={() => handleLinkClick("users")}
+//               >
+//                 <svg
+//                   xmlns="http://www.w3.org/2000/svg"
+//                   className="h-5 w-5 opacity-75"
+//                   fill="none"
+//                   viewBox="0 0 24 24"
+//                   stroke="currentColor"
+//                   strokeWidth="2"
+//                 >
+//                   {/* Your SVG path for Users */}
+//                 </svg>
+//                 <span>Users</span>
+//               </li>
+
+//               <li
+//                 className={`menu-item ${activeLink === "transactions" ? "bg-blue-500 text-white" : ""}`}
+//                 onClick={() => handleLinkClick("transactions")}
+//               >
+//                 <svg
+//                   xmlns="http://www.w3.org/2000/svg"
+//                   className="h-5 w-5 opacity-75"
+//                   fill="none"
+//                   viewBox="0 0 24 24"
+//                   stroke="currentColor"
+//                   strokeWidth="2"
+//                 >
+//                   {/* Your SVG path for Transactions */}
+//                 </svg>
+//                 <span>Transactions</span>
+//               </li>
+
+//               <li>
+//                 <input type="checkbox" id="menu-1" className="menu-toggle" />
+//                 <label className="menu-item justify-between" htmlFor="menu-1">
+//                   <div className="flex gap-2">
+//                     <svg
+//                       xmlns="http://www.w3.org/2000/svg"
+//                       className="h-5 w-5 opacity-75"
+//                       fill="none"
+//                       viewBox="0 0 24 24"
+//                       stroke="currentColor"
+//                       strokeWidth="2"
+//                     >
+//                       {/* Your SVG path for Notifications */}
+//                     </svg>
+//                     <span>Notifications</span>
+//                   </div>
+
+//                   <span className="menu-icon">
+//                     {/* Your menu icon */}
+//                   </span>
+//                 </label>
+//                 <div className="menu-item-collapse">
+//                   {/* Your collapsible menu items */}
+//                 </div>
+//               </li>
+//             </ul>
+//           </section>
+//         </nav>
+//       </section>
+
+//       <section className="sidebar-footer h-full justify-end bg-gray-2 pt-2">
+//         {/* Your footer */}
+//       </section>
+//     </aside>
+//   );
+// };
+
+// export default SideBar;
